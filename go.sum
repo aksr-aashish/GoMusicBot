@@ -1,0 +1,8 @@
+github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-beta13 h1:F4qg3Q9zHKKZTBKOPFdQLBFIq57zsqqoIU87B4AeVR0=
+github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-beta13/go.mod h1:r815fYWTudnU9JhtsJAxUtuV7QrSgKpChJkfTSMFpfg=
+github.com/gotgcalls/gotgcalls v0.0.0-20210722113354-46414207c448 h1:6WTtlRCuUxDHwUPWoTE1jGum82J3M24tb4vsecFJIq8=
+github.com/gotgcalls/gotgcalls v0.0.0-20210722113354-46414207c448/go.mod h1:6APMxIPip3dszV0PxKUrjHGyyVFtN17o/GQ1C11Dodc=
+github.com/gotgcalls/gotgcalls v0.0.0-20210722140844-f45f355541d4 h1:bds/ObPtu1MlkUW1NsUmyLf7TzJWxUrYu1robvRHKZ0=
+github.com/gotgcalls/gotgcalls v0.0.0-20210722140844-f45f355541d4/go.mod h1:6APMxIPip3dszV0PxKUrjHGyyVFtN17o/GQ1C11Dodc=
+github.com/joho/godotenv v1.3.0 h1:Zjp+RcGpHhGlrMbJzXTrZZPrWj+1vfm90La1wgB6Bhc=
+github.com/joho/godotenv v1.3.0/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
