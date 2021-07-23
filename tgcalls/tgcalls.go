@@ -24,7 +24,7 @@ func OnFinish(client string, chatId int64) bool {
 	item := queues.Pull(chatId)
 	if item == nil {
 		stopResult, _ := GoTGCalls.Stop(client, chatId)
-		return stopResult != gotgcalls.OK
+		return stopResult == gotgcalls.OK
 	}
 
 	Get().Stream(client, chatId, item.(string))
