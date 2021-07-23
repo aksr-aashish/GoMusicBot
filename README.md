@@ -1,21 +1,33 @@
 # GoMusicBot
 
-# This is very WIP
+An example bot using [GoTGCalls](https://github.com/gotgcalls/gotgcalls).
 
-## Config
+---
 
-`BOT_TOKEN` botfather  
-`STRING_SESSION` telethon/[gramjs](https://rojserbest.github.io/bssg) string session  
-`API_ID` tg app id  
-`API_HASH` tg app hash  
+## Configuring
 
-## Installation
+Copy `example.env` to `.env` and add your credentials.
+
+- `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://rojserbest.github.io/bssg).
+- `API_ID`: Telegram app ID.
+- `API_HASH`: Telegram app hash.
+- `BOT_TOKEN`: Telegram bot token.
+
+## Running
+
+1. [Install](https://github.com/gotgcalls/gotgcalls#installation) GoTGCalls.
+
+2. Start:
 
 ```bash
-git clone https://github.com/gotgcalls/GoMusicBot &&
-cd GoMusicBot &&
-curl -s https://raw.githubusercontent.com/gotgcalls/gotgcalls-server/main/install.sh | bash &&
-npm i &&
-cd .. &&
 go run .
 ```
+
+## Commands
+
+| Command | Description                   |
+| ------- | ----------------------------- |
+| stream  | Stream the replied audio file |
+| pause   | Pause streaming               |
+| resume  | Resume streaming              |
+| skip    | Skip the current playback     |
