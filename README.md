@@ -4,10 +4,10 @@
 
 ## Config
 
-`BOT_TOKEN` botfather
-`STRING_SESSION` telethon/[gramjs](https://rojserbest.github.io/bssg) string session
-`API_ID` tg app id
-`API_HASH` tg app hash
+`BOT_TOKEN` botfather  
+`STRING_SESSION` telethon/[gramjs](https://rojserbest.github.io/bssg) string session  
+`API_ID` tg app id  
+`API_HASH` tg app hash  
 
 ## Installation
 
