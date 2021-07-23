@@ -1,15 +1,14 @@
 {
-  "paused": "Paused.",
-  "not_streaming": "Not streaming.",
-  "not_in_call": "Not in call.",
-  "pause_error": "Error pausing: {{.Error}}",
+  "paused": "⏸ Paused.",
+  "not_streaming": "Nothing is being streamed or already paused.",
+  "not_in_call": "Not in the voice chat",
+  "pause_error": "⚠️ Error: {{.Error}}",
   "not_paused": "Not paused.",
-  "resumed": "Resumed.",
+  "resumed": "▶️ Resumed.",
   "resume_error": "Error resuming: {{.Error}}",
-  "require_audio_file": "Reply an audio file.",
+  "require_audio_file": "Reply to an audio file.",
   "download_error": "An error occurred while downloading the file.",
   "convert_error": "Error converting: {{.Error}}",
   "stream_error": "Error requesting to stream: {{.Error}}",
-  "streaming": "Streaming...",
-  "queued_at": "Queued at position {{.Position}}"
+  "streaming": "Streaming..."
 }
