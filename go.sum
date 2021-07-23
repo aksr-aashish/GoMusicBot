@@ -7,6 +7,8 @@ github.com/gotgcalls/gotgcalls v0.0.0-20210722140844-f45f355541d4 h1:bds/ObPtu1M
 github.com/gotgcalls/gotgcalls v0.0.0-20210722140844-f45f355541d4/go.mod h1:6APMxIPip3dszV0PxKUrjHGyyVFtN17o/GQ1C11Dodc=
 github.com/gotgcalls/gotgcalls v1.0.0 h1:BFZf9Mz7wACmQD4ymX+0ZhAzekAOk7tdqpGTSF/JVKA=
 github.com/gotgcalls/gotgcalls v1.0.0/go.mod h1:6APMxIPip3dszV0PxKUrjHGyyVFtN17o/GQ1C11Dodc=
+github.com/gotgcalls/gotgcalls v1.0.1 h1:uSyHrx0DijtW3HNURqciv2KWu69QC32T4BXMq5LNE/c=
+github.com/gotgcalls/gotgcalls v1.0.1/go.mod h1:6APMxIPip3dszV0PxKUrjHGyyVFtN17o/GQ1C11Dodc=
 github.com/joho/godotenv v1.3.0 h1:Zjp+RcGpHhGlrMbJzXTrZZPrWj+1vfm90La1wgB6Bhc=
 github.com/joho/godotenv v1.3.0/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
 github.com/nicksnyder/go-i18n/v2 v2.1.2 h1:QHYxcUJnGHBaq7XbvgunmZ2Pn0focXFqTD61CkH146c=

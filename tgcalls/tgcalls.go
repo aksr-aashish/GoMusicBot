@@ -6,6 +6,8 @@ import (
 	"os"
 	"strconv"
 
+	"GoMusicBot/queues"
+
 	"github.com/gotgcalls/gotgcalls"
 )
 
@@ -18,9 +20,19 @@ var stringSession string
 var apiId int
 var apiHash string
 
+func onFinish(client string, chatId int64) {
+	item := queues.Pull(chatId)
+	if item == nil {
+		return
+	}
+
+	GoTGCalls.Stream(client, chatId, item.(string))
+}
+
 func Start() error {
 	if GoTGCalls == nil {
 		GoTGCalls = gotgcalls.NewGoTGCalls()
+		GoTGCalls.OnFinish = onFinish
 
 		stringSession, apiHash = os.Getenv("STRING_SESSION"), os.Getenv("API_HASH")
 		apiId, _ = strconv.Atoi(os.Getenv("API_ID"))

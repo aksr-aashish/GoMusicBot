@@ -10,5 +10,6 @@
   "download_error": "An error occurred while downloading the file.",
   "convert_error": "Error converting: {{.Error}}",
   "stream_error": "Error requesting to stream: {{.Error}}",
-  "streaming": "Streaming..."
+  "streaming": "Streaming...",
+  "queued_at": "Queued at position {{.Position}}"
 }

@@ -11,7 +11,7 @@ import (
 )
 
 func pause(b *gotgbot.Bot, ctx *ext.Context) error {
-	switch result, err := tgcalls.Get().Pause("main", ctx.EffectiveChat.Id); result {
+	switch result, err := tgcalls.Get().Pause(tgcalls.CLIENT, ctx.EffectiveChat.Id); result {
 	case gotgcalls.OK:
 		_, err = ctx.Message.Reply(b, i18n.Localize("paused", nil), nil)
 		return err

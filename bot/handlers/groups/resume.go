@@ -11,7 +11,7 @@ import (
 )
 
 func resume(b *gotgbot.Bot, ctx *ext.Context) error {
-	switch result, err := tgcalls.Get().Resume("main", ctx.EffectiveChat.Id); result {
+	switch result, err := tgcalls.Get().Resume(tgcalls.CLIENT, ctx.EffectiveChat.Id); result {
 	case gotgcalls.OK:
 		_, err = ctx.Message.Reply(b, i18n.Localize("resumed", nil), nil)
 		return err

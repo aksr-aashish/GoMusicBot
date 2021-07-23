@@ -9,8 +9,10 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
+	"github.com/gotgcalls/gotgcalls"
 
 	"GoMusicBot/i18n"
+	"GoMusicBot/queues"
 	"GoMusicBot/tgcalls"
 )
 
@@ -78,13 +80,18 @@ func stream(b *gotgbot.Bot, ctx *ext.Context) error {
 		return nil
 	}
 
-	err = tgcalls.Get().Stream("main", ctx.EffectiveChat.Id, repliedMessage.Audio.FileId+".raw")
-	if err != nil {
-		ctx.Message.Reply(b, i18n.Localize("stream_error", map[string]string{"Error": err.Error()}), nil)
-		return nil
-	}
+	if isFinished, _ := tgcalls.Get().IsFinished(tgcalls.CLIENT, ctx.EffectiveChat.Id); isFinished != gotgcalls.NOT_FINISHED {
+		err = tgcalls.Get().Stream(tgcalls.CLIENT, ctx.EffectiveChat.Id, repliedMessage.Audio.FileId+".raw")
+		if err != nil {
+			ctx.Message.Reply(b, i18n.Localize("stream_error", map[string]string{"Error": err.Error()}), nil)
+			return nil
+		}
 
-	ctx.Message.Reply(b, i18n.Localize("streaming", nil), nil)
+		ctx.Message.Reply(b, i18n.Localize("streaming", nil), nil)
+	} else {
+		position := queues.Push(ctx.EffectiveChat.Id, repliedMessage.Audio.FileId+".raw")
+		ctx.Message.Reply(b, i18n.Localize("queued_at", map[string]int{"Position": position}), nil)
+	}
 	return nil
 }
 
