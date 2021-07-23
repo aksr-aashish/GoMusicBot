@@ -1,0 +1,14 @@
+{
+  "paused": "Paused.",
+  "not_streaming": "Not streaming.",
+  "not_in_call": "Not in call.",
+  "pause_error": "Error pausing: {{.Error}}",
+  "not_paused": "Not paused.",
+  "resumed": "Resumed.",
+  "resume_error": "Error resuming: {{.Error}}",
+  "require_audio_file": "Reply an audio file.",
+  "download_error": "An error occurred while downloading the file.",
+  "convert_error": "Error converting: {{.Error}}",
+  "stream_error": "Error requesting to stream: {{.Error}}",
+  "streaming": "Streaming..."
+}

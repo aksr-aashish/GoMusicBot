@@ -1,7 +1,6 @@
 package groups
 
 import (
-	"GoMusicBot/tgcalls"
 	"io"
 	"net/http"
 	"os"
@@ -10,6 +9,9 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
+
+	"GoMusicBot/i18n"
+	"GoMusicBot/tgcalls"
 )
 
 func downloadFile(b *gotgbot.Bot, fileId string) error {
@@ -60,29 +62,29 @@ func convert(input string) error {
 func stream(b *gotgbot.Bot, ctx *ext.Context) error {
 	repliedMessage := ctx.EffectiveMessage.ReplyToMessage
 	if repliedMessage == nil || repliedMessage.Audio == nil {
-		ctx.Message.Reply(b, "Reply an audio file.", nil)
+		ctx.Message.Reply(b, i18n.Localize("require_audio_file", nil), nil)
 		return nil
 	}
 
 	err := downloadFile(b, repliedMessage.Audio.FileId)
 	if err != nil {
-		ctx.Message.Reply(b, "Error downloading file: "+err.Error(), nil)
+		ctx.Message.Reply(b, i18n.Localize("download_error", nil), nil)
 		return nil
 	}
 
 	err = convert(repliedMessage.Audio.FileId)
 	if err != nil {
-		ctx.Message.Reply(b, "Error converting file: "+err.Error(), nil)
+		ctx.Message.Reply(b, i18n.Localize("convert_error", map[string]string{"Error": err.Error()}), nil)
 		return nil
 	}
 
 	err = tgcalls.Get().Stream("main", ctx.EffectiveChat.Id, repliedMessage.Audio.FileId+".raw")
 	if err != nil {
-		ctx.Message.Reply(b, "Error requesting to stream: "+err.Error(), nil)
+		ctx.Message.Reply(b, i18n.Localize("stream_error", map[string]string{"Error": err.Error()}), nil)
 		return nil
 	}
 
-	ctx.Message.Reply(b, "Streaming...", nil)
+	ctx.Message.Reply(b, i18n.Localize("streaming", nil), nil)
 	return nil
 }
 

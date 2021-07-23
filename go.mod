@@ -4,6 +4,8 @@ go 1.16
 
 require (
 	github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-beta13
-	github.com/gotgcalls/gotgcalls v0.0.0-20210722140844-f45f355541d4
+	github.com/gotgcalls/gotgcalls v1.0.0
 	github.com/joho/godotenv v1.3.0
+	github.com/nicksnyder/go-i18n/v2 v2.1.2 // indirect
+	golang.org/x/text v0.3.6 // indirect
 )

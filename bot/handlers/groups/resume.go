@@ -6,29 +6,29 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2/ext/handlers"
 	"github.com/gotgcalls/gotgcalls"
 
+	"GoMusicBot/i18n"
 	"GoMusicBot/tgcalls"
 )
 
 func resume(b *gotgbot.Bot, ctx *ext.Context) error {
 	switch result, err := tgcalls.Get().Resume("main", ctx.EffectiveChat.Id); result {
 	case gotgcalls.OK:
-		_, err = ctx.Message.Reply(b, "Resumed.", nil)
+		_, err = ctx.Message.Reply(b, i18n.Localize("resumed", nil), nil)
 		return err
-	case gotgcalls.NOT_STREAMING: // #
-		_, err = ctx.Message.Reply(b, "Not paused.", nil)
+	case gotgcalls.NOT_PAUSED:
+		_, err = ctx.Message.Reply(b, i18n.Localize("not_paused", nil), nil)
 		return err
 	case gotgcalls.NOT_IN_CALL:
-		_, err = ctx.Message.Reply(b, "Not in call.", nil)
+		_, err = ctx.Message.Reply(b, i18n.Localize("not_in_call", nil), nil)
 		return err
 	default:
 		if err != nil {
-			_, err = ctx.Message.Reply(b, "Error resuming: "+err.Error(), nil)
-			return err
-		} else {
-			_, err = ctx.Message.Reply(b, "Could not resume.", nil)
+			_, err = ctx.Message.Reply(b, i18n.Localize("resume_error", map[string]string{"Error": err.Error()}), nil)
 			return err
 		}
 	}
+
+	return nil
 }
 
 var resumeHandler = handlers.NewCommand("resume", resume)
