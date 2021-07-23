@@ -1,6 +1,7 @@
 {
   "paused": "⏸ Paused.",
-  "not_streaming": "Nothing is being streamed or already paused.",
+  "not_streaming_to_pause": "Nothing is being streamed or already paused.",
+  "not_streaming": "Nothing is streaming.",
   "not_in_call": "Not in the voice chat",
   "pause_error": "⚠️ Error: {{.Error}}",
   "not_paused": "Not paused.",

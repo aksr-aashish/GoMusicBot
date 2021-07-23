@@ -16,7 +16,7 @@ func pause(b *gotgbot.Bot, ctx *ext.Context) error {
 		_, err = ctx.Message.Reply(b, i18n.Localize("paused", nil), nil)
 		return err
 	case gotgcalls.NOT_STREAMING:
-		_, err := ctx.Message.Reply(b, i18n.Localize("not_streaming", nil), nil)
+		_, err := ctx.Message.Reply(b, i18n.Localize("not_streaming_to_pause", nil), nil)
 		return err
 	case gotgcalls.NOT_IN_CALL:
 		_, err = ctx.Message.Reply(b, i18n.Localize("not_in_call", nil), nil)
