@@ -12,5 +12,6 @@
   "convert_error": "Error converting: {{.Error}}",
   "stream_error": "Error requesting to stream: {{.Error}}",
   "streaming": "Streaming...",
-  "skipped": "Skipped."
+  "skipped": "Skipped.",
+  "queued_at": "Queued at position {{.Position}}"
 }
