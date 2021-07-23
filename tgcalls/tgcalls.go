@@ -20,19 +20,23 @@ var stringSession string
 var apiId int
 var apiHash string
 
-func onFinish(client string, chatId int64) {
+func OnFinish(client string, chatId int64) bool {
 	item := queues.Pull(chatId)
 	if item == nil {
-		return
+		stopResult, _ := GoTGCalls.Stop(client, chatId)
+		return stopResult == gotgcalls.OK
 	}
 
-	GoTGCalls.Stream(client, chatId, item.(string))
+	Get().Stream(client, chatId, item.(string))
+	return true
 }
 
 func Start() error {
 	if GoTGCalls == nil {
 		GoTGCalls = gotgcalls.NewGoTGCalls()
-		GoTGCalls.OnFinish = onFinish
+		GoTGCalls.OnFinish = func(client string, chatId int64) {
+			OnFinish(client, chatId)
+		}
 
 		stringSession, apiHash = os.Getenv("STRING_SESSION"), os.Getenv("API_HASH")
 		apiId, _ = strconv.Atoi(os.Getenv("API_ID"))
