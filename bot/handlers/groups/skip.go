@@ -11,9 +11,9 @@ import (
 
 func skip(b *gotgbot.Bot, ctx *ext.Context) error {
 	if tgcalls.OnFinish(tgcalls.CLIENT, ctx.EffectiveChat.Id) {
-		ctx.Message.Reply(b, i18n.Localize("skipped", nil), nil)
+		reply(b, ctx.Message, i18n.Localize("skipped", nil))
 	} else {
-		ctx.Message.Reply(b, i18n.Localize("not_streaming", nil), nil)
+		reply(b, ctx.Message, i18n.Localize("not_streaming", nil))
 	}
 
 	return nil

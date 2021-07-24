@@ -15,10 +15,10 @@ func stop(b *gotgbot.Bot, ctx *ext.Context) error {
 	switch result, _ := tgcalls.GoTGCalls.Stop(tgcalls.CLIENT, ctx.EffectiveChat.Id); result {
 	case gotgcalls.OK:
 		queues.Clear(ctx.EffectiveChat.Id)
-		ctx.Message.Reply(b, i18n.Localize("stopped", nil), nil)
+		reply(b, ctx.Message, i18n.Localize("stopped", nil))
 		return nil
 	default:
-		ctx.Message.Reply(b, i18n.Localize("not_stopped", nil), nil)
+		reply(b, ctx.Message, i18n.Localize("not_stopped", nil))
 	}
 
 	return nil

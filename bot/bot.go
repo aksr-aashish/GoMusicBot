@@ -1,11 +1,12 @@
 package bot
 
 import (
-	"GoMusicBot/bot/handlers"
 	"os"
 
 	"github.com/PaulSonOfLars/gotgbot/v2"
 	"github.com/PaulSonOfLars/gotgbot/v2/ext"
+
+	"GoMusicBot/bot/handlers"
 )
 
 func Start() error {

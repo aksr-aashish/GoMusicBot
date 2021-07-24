@@ -13,17 +13,17 @@ import (
 func resume(b *gotgbot.Bot, ctx *ext.Context) error {
 	switch result, err := tgcalls.Get().Resume(tgcalls.CLIENT, ctx.EffectiveChat.Id); result {
 	case gotgcalls.OK:
-		_, err = ctx.Message.Reply(b, i18n.Localize("resumed", nil), nil)
+		_, err = reply(b, ctx.Message, i18n.Localize("resumed", nil))
 		return err
 	case gotgcalls.NOT_PAUSED:
-		_, err = ctx.Message.Reply(b, i18n.Localize("not_paused", nil), nil)
+		_, err = reply(b, ctx.Message, i18n.Localize("not_paused", nil))
 		return err
 	case gotgcalls.NOT_IN_CALL:
-		_, err = ctx.Message.Reply(b, i18n.Localize("not_in_call", nil), nil)
+		_, err = reply(b, ctx.Message, i18n.Localize("not_in_call", nil))
 		return err
 	default:
 		if err != nil {
-			_, err = ctx.Message.Reply(b, i18n.Localize("resume_error", map[string]string{"Error": err.Error()}), nil)
+			_, err = reply(b, ctx.Message, i18n.Localize("resume_error", map[string]string{"Error": err.Error()}))
 			return err
 		}
 	}
