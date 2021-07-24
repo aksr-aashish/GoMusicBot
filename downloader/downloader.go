@@ -8,10 +8,8 @@ import (
 	"github.com/PaulSonOfLars/gotgbot/v2"
 )
 
-const DOWNLOADED_FILES_DIR = "downloads/"
-
 func Download(b *gotgbot.Bot, fileId string) (string, error) {
-	output := DOWNLOADED_FILES_DIR + fileId
+	output := fileId + ".dl"
 
 	if _, err := os.Stat(output); err == nil {
 		return output, nil
