@@ -68,7 +68,7 @@ func stream(b *gotgbot.Bot, ctx *ext.Context) error {
 		return nil
 	}
 
-	msg, err := ctx.Message.Reply(b, i18n.Localize("downloading", nil), nil)
+	msg, err := repliedMessage.Reply(b, i18n.Localize("downloading", nil), nil)
 	if err != nil {
 		return err
 	}
