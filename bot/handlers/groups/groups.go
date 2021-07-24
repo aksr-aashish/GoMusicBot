@@ -7,7 +7,7 @@ import (
 )
 
 func AddHandlers(dp *ext.Dispatcher) {
-	handlers2 := []ext.Handler{pauseHandler, resumeHandler, streamHandler, skipHandler}
+	handlers2 := []ext.Handler{pauseHandler, resumeHandler, streamHandler, skipHandler, stopHandler}
 
 	dp.AddHandler(
 		handlers.NewMessage(
