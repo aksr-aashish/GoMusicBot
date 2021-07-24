@@ -4,6 +4,8 @@ github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-beta13 h1:F4qg3Q9zHKKZTBKOPFdQLBFIq57
 github.com/PaulSonOfLars/gotgbot/v2 v2.0.0-beta13/go.mod h1:r815fYWTudnU9JhtsJAxUtuV7QrSgKpChJkfTSMFpfg=
 github.com/gotgcalls/gotgcalls v1.0.1 h1:uSyHrx0DijtW3HNURqciv2KWu69QC32T4BXMq5LNE/c=
 github.com/gotgcalls/gotgcalls v1.0.1/go.mod h1:6APMxIPip3dszV0PxKUrjHGyyVFtN17o/GQ1C11Dodc=
+github.com/gotgcalls/gotgcalls v1.0.2 h1:cYYBm4s5FtKiGObYUqagg68iighTU8qjEkcGt4Xo7RM=
+github.com/gotgcalls/gotgcalls v1.0.2/go.mod h1:6APMxIPip3dszV0PxKUrjHGyyVFtN17o/GQ1C11Dodc=
 github.com/joho/godotenv v1.3.0 h1:Zjp+RcGpHhGlrMbJzXTrZZPrWj+1vfm90La1wgB6Bhc=
 github.com/joho/godotenv v1.3.0/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
 github.com/nicksnyder/go-i18n/v2 v2.1.2 h1:QHYxcUJnGHBaq7XbvgunmZ2Pn0focXFqTD61CkH146c=
