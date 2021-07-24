@@ -15,5 +15,7 @@
   "skipped": "⏩ | Skipped.",
   "queued_at": "#️⃣ | Queued at position {{.Position}}.",
   "downloading": "⏬ | Downloading...",
-  "converting": "🔄 | Converting..."
+  "converting": "🔄 | Converting...",
+  "stopped": "⏹ | Stopped.",
+  "not_stopped": "❌ | Not stopped."
 }

@@ -25,9 +25,10 @@ go run .
 
 ## Commands
 
-| Command | Description                   |
-| ------- | ----------------------------- |
-| stream  | Stream the replied audio file |
-| pause   | Pause streaming               |
-| resume  | Resume streaming              |
-| skip    | Skip the current playback     |
+| Command | Description                        |
+| ------- | ---------------------------------- |
+| stream  | Stream the replied audio file      |
+| pause   | Pause streaming                    |
+| resume  | Resume streaming                   |
+| skip    | Skip the current playback          |
+| stop    | Clear the queue and leave the call |

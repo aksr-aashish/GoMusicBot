@@ -18,3 +18,7 @@ func Pull(chatId int64) interface{} {
 	Queues[chatId] = Queues[chatId][1:]
 	return toReturn
 }
+
+func Clear(chatId int64) {
+	delete(Queues, chatId)
+}
