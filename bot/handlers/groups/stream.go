@@ -68,29 +68,39 @@ func stream(b *gotgbot.Bot, ctx *ext.Context) error {
 		return nil
 	}
 
-	err := downloadFile(b, repliedMessage.Audio.FileId)
+	msg, err := ctx.Message.Reply(b, i18n.Localize("downloading", nil), nil)
 	if err != nil {
-		ctx.Message.Reply(b, i18n.Localize("download_error", nil), nil)
+		return err
+	}
+
+	err = downloadFile(b, repliedMessage.Audio.FileId)
+	if err != nil {
+		msg.EditText(b, i18n.Localize("download_error", nil), nil)
+		return nil
+	}
+
+	msg, err = msg.EditText(b, i18n.Localize("converting", nil), nil)
+	if err != nil {
 		return nil
 	}
 
 	err = convert(repliedMessage.Audio.FileId)
 	if err != nil {
-		ctx.Message.Reply(b, i18n.Localize("convert_error", map[string]string{"Error": err.Error()}), nil)
+		msg.EditText(b, i18n.Localize("convert_error", map[string]string{"Error": err.Error()}), nil)
 		return nil
 	}
 
 	if isFinished, _ := tgcalls.Get().IsFinished(tgcalls.CLIENT, ctx.EffectiveChat.Id); isFinished != gotgcalls.NOT_FINISHED {
 		err = tgcalls.Get().Stream(tgcalls.CLIENT, ctx.EffectiveChat.Id, repliedMessage.Audio.FileId+".raw")
 		if err != nil {
-			ctx.Message.Reply(b, i18n.Localize("stream_error", map[string]string{"Error": err.Error()}), nil)
+			msg.EditText(b, i18n.Localize("stream_error", map[string]string{"Error": err.Error()}), nil)
 			return nil
 		}
 
-		ctx.Message.Reply(b, i18n.Localize("streaming", nil), nil)
+		msg.EditText(b, i18n.Localize("streaming", nil), nil)
 	} else {
 		position := queues.Push(ctx.EffectiveChat.Id, repliedMessage.Audio.FileId+".raw")
-		ctx.Message.Reply(b, i18n.Localize("queued_at", map[string]int{"Position": position}), nil)
+		msg.EditText(b, i18n.Localize("queued_at", map[string]int{"Position": position}), nil)
 	}
 	return nil
 }

@@ -13,5 +13,7 @@
   "stream_error": "⚠️ | Error requesting to stream: {{.Error}}",
   "streaming": "▶️ | Streaming...",
   "skipped": "⏩ | Skipped.",
-  "queued_at": "#️⃣ | Queued at position {{.Position}}."
+  "queued_at": "#️⃣ | Queued at position {{.Position}}.",
+  "downloading": "⏬ | Downloading...",
+  "converting": "🔄 | Converting..."
 }
