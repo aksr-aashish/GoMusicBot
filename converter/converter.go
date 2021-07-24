@@ -7,12 +7,18 @@ import (
 
 const CONVERTED_FILES_DIR = "raw_files/"
 
+var cwd string
+
 func getFFmpegArgs(input string, output string) []string {
 	return []string{"-y", "-i", input, "-c", "copy", "-acodec", "pcm_s16le", "-f", "s16le", "-ac", "1", "-ar", "65000", output}
 }
 
 func Convert(input string) (string, error) {
-	output := CONVERTED_FILES_DIR + input
+	if cwd == "" {
+		cwd, _ = os.Getwd()
+	}
+
+	output := cwd + CONVERTED_FILES_DIR + input
 	if _, err := os.Stat(output); err == nil {
 		return output, nil
 	}
