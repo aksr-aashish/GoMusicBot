@@ -9,5 +9,5 @@ func reply(b *gotgbot.Bot, msg *gotgbot.Message, text string) (*gotgbot.Message,
 }
 
 func edit(b *gotgbot.Bot, msg *gotgbot.Message, text string) (*gotgbot.Message, error) {
-	return msg.Reply(b, text, &gotgbot.SendMessageOpts{ParseMode: "HTML"})
+	return msg.EditText(b, text, &gotgbot.EditMessageTextOpts{ParseMode: "HTML"})
 }
