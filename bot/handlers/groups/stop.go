@@ -12,9 +12,9 @@ import (
 )
 
 func stop(b *gotgbot.Bot, ctx *ext.Context) error {
+	queues.Clear(ctx.EffectiveChat.Id)
 	switch result, _ := tgcalls.GoTGCalls.Stop(tgcalls.CLIENT, ctx.EffectiveChat.Id); result {
 	case gotgcalls.OK:
-		queues.Clear(ctx.EffectiveChat.Id)
 		reply(b, ctx.Message, i18n.Localize("stopped", nil))
 		return nil
 	default:
