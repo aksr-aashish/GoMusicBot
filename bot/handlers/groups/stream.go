@@ -42,7 +42,7 @@ func stream(b *gotgbot.Bot, ctx *ext.Context) error {
 		return nil
 	}
 
-	if isFinished, _ := tgcalls.Get().IsFinished(tgcalls.CLIENT, ctx.EffectiveChat.Id); isFinished != gotgcalls.NOT_FINISHED {
+	if isFinished, _ := tgcalls.Get().IsFinished(tgcalls.CLIENT, ctx.EffectiveChat.Id); isFinished != gotgcalls.OK {
 		err = tgcalls.Get().Stream(tgcalls.CLIENT, ctx.EffectiveChat.Id, filePath)
 		if err != nil {
 			edit(b, msg, i18n.Localize("stream_error", map[string]string{"Error": err.Error()}))
