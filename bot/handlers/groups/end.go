@@ -17,10 +17,7 @@ func end(b *gotgbot.Bot, ctx *ext.Context) error {
 
 var endHandler = handlers.NewMessage(
 	func(msg *gotgbot.Message) bool {
-		if msg.VoiceChatEnded != nil {
-			return true
-		}
-
-		return false
-	}, nil,
+		return msg.VoiceChatEnded != nil
+	},
+	end,
 )
