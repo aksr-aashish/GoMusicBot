@@ -7,5 +7,5 @@ require (
 	github.com/gotgcalls/gotgcalls v1.0.2
 	github.com/joho/godotenv v1.3.0
 	github.com/nicksnyder/go-i18n/v2 v2.1.2
-	golang.org/x/text v0.3.6
+	golang.org/x/text v0.3.8
 )
